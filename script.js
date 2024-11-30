@@ -38,7 +38,7 @@ function playRound (humanChoice, choiceString){
       else if (humanChoice == "scissors" && choiceString == "rock"){
         console.log("You lose!")
         computerScore++;
-    } else if (humanChoice == "scissors" && choiceString == "rock"){
+    } else if (humanChoice == "scissors" && choiceString == "paper"){
         console.log("You win!")
         humanScore++;
     } else if (humanChoice === choiceString){
