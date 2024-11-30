@@ -1,7 +1,7 @@
-
+let humanScore;
+let computerScore;
 let humanChoice;
-let humanScore = 0;
-let computerScore = 0;
+
 
 function getComputerChoice(max = 3){
     // generates a random number 0, 1 or 2
@@ -20,34 +20,63 @@ function getHumanChoice (){
 }
 
 function playRound (humanChoice, choiceString){
-    if (humanChoice === choiceString){
-        console.log("Its a tie!")
-    } 
-    else if (humanChoice == "rock" && choiceString == "paper"){
+    
+    if (humanChoice == "rock" && choiceString == "paper"){
         console.log("You lose!")
+        computerScore++;
     } else if (humanChoice == "rock" && choiceString == "scissors"){
         console.log("You win!")
+        humanScore++;
     } 
       else if (humanChoice == "paper" && choiceString == "scissors"){
         console.log("You lose!")
+        computerScore++;
     } else if (humanChoice == "paper" && choiceString == "rock"){
         console.log("You win!")
+        humanScore++;
     }
       else if (humanChoice == "scissors" && choiceString == "rock"){
         console.log("You lose!")
+        computerScore++;
     } else if (humanChoice == "scissors" && choiceString == "rock"){
         console.log("You win!")
+        humanScore++;
+    } else if (humanChoice === choiceString){
+        console.log("Its a tie!")
     } else {
         console.log("error")
     }
 }
 
 
-getComputerChoice()
-console.log(choiceString);
+function playGame(){
+    humanScore = 0;
+    computerScore = 0;
 
-getHumanChoice()
-console.log(humanChoice);
+    for (i = 1 ; i <= 5 ; i++){
+    
+    getComputerChoice()
+    console.log(choiceString);
 
-playRound(humanChoice, choiceString)
+    getHumanChoice()
+    console.log(humanChoice);
 
+    playRound(humanChoice, choiceString);
+    }
+
+    console.log(`Computer Score: ${computerScore}`);
+    console.log(`Human Score: ${humanScore}`);
+    if (humanScore > computerScore){
+        console.log("You win the game!");
+    } else if (humanScore < computerScore){
+        console.log("You lose the game.");
+    }
+
+}
+
+
+
+
+// stuff starts here
+
+playGame();
