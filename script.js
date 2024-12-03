@@ -64,10 +64,15 @@ function playGame(){
 
     getComputerChoice()
     console.log(choiceString);
-
     console.log(humanChoice);
 
     playRound(humanChoice, choiceString);
+
+    document.getElementById("humanPicked").innerHTML = humanChoice;
+    document.getElementById("computerPicked").innerHTML = choiceString;
+
+    document.getElementById("humanscore").innerHTML = humanScore;
+    document.getElementById("computerScore").innerHTML = computerScore;
     
 
     console.log(`Computer Score: ${computerScore}`);
@@ -88,11 +93,13 @@ const rockBtn = document.getElementById("rock");
 rockBtn.addEventListener("click", getHumanChoiceRock );
 rockBtn.addEventListener("click", playGame);
 
-var paperBtn = document.getElementById("paper");
+const paperBtn = document.getElementById("paper");
 paperBtn.addEventListener("click", getHumanChoicePaper );
 paperBtn.addEventListener("click", playGame);
 
-var scissorsBtn = document.getElementById("scissors");
+const scissorsBtn = document.getElementById("scissors");
 scissorsBtn.addEventListener("click", getHumanChoiceScissors );
 scissorsBtn.addEventListener("click", playGame);
+
+
 
