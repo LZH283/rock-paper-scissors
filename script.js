@@ -2,6 +2,8 @@ let humanScore;
 let computerScore;
 let humanChoice;
 
+winText = document.getElementById("winMessage");
+
 
 function getComputerChoice(max = 3){
     // generates a random number 0, 1 or 2
@@ -59,9 +61,9 @@ function playRound (humanChoice, choiceString){
 
 
 function playGame(){
-    humanScore = 0;
-    computerScore = 0;
+    
 
+    
     getComputerChoice()
     console.log(choiceString);
     console.log(humanChoice);
@@ -83,12 +85,40 @@ function playGame(){
         console.log("You lose the game.");
     }
 
+    if(humanScore == 5 || computerScore == 5){
+        if (humanScore == 5){
+            winText.style.display = "block";
+            document.getElementById("winner").innerHTML = "Human";
+        } else {
+            winText.style.display = "block";
+            document.getElementById("winner").innerHTML = "Computer";
+        }
+    }
+
+}
+
+function restartGame(){
+    humanScore = 0;
+    computerScore = 0;
+    document.getElementById("humanPicked").innerHTML = "__";
+    document.getElementById("computerPicked").innerHTML = "__";
+
+    document.getElementById("humanscore").innerHTML = 0;
+    document.getElementById("computerScore").innerHTML = 0;
+    winText.style.display = "none";
 }
 
 
 
 
 // stuff starts here
+
+humanScore = 0;
+computerScore = 0;
+
+
+winText.style.display = "none";
+
 const rockBtn = document.getElementById("rock");
 rockBtn.addEventListener("click", getHumanChoiceRock );
 rockBtn.addEventListener("click", playGame);
@@ -101,5 +131,7 @@ const scissorsBtn = document.getElementById("scissors");
 scissorsBtn.addEventListener("click", getHumanChoiceScissors );
 scissorsBtn.addEventListener("click", playGame);
 
+const restart = document.getElementById("restart");
+restart.addEventListener("click", restartGame);
 
 
