@@ -15,9 +15,18 @@ function getComputerChoice(max = 3){
     }
 }
 
-function getHumanChoice (){
-    humanChoice = prompt("What do you pick?").toLowerCase();
+function getHumanChoiceRock(){
+    return humanChoice = "rock";
 }
+
+function getHumanChoicePaper (){
+    return humanChoice = "paper";
+}
+
+function getHumanChoiceScissors (){
+    return humanChoice = "scissors";
+}
+
 
 function playRound (humanChoice, choiceString){
     
@@ -53,16 +62,13 @@ function playGame(){
     humanScore = 0;
     computerScore = 0;
 
-    for (i = 1 ; i <= 5 ; i++){
-    
     getComputerChoice()
     console.log(choiceString);
 
-    getHumanChoice()
     console.log(humanChoice);
 
     playRound(humanChoice, choiceString);
-    }
+    
 
     console.log(`Computer Score: ${computerScore}`);
     console.log(`Human Score: ${humanScore}`);
@@ -78,5 +84,15 @@ function playGame(){
 
 
 // stuff starts here
+const rockBtn = document.getElementById("rock");
+rockBtn.addEventListener("click", getHumanChoiceRock );
+rockBtn.addEventListener("click", playGame);
 
-playGame();
+var paperBtn = document.getElementById("paper");
+paperBtn.addEventListener("click", getHumanChoicePaper );
+paperBtn.addEventListener("click", playGame);
+
+var scissorsBtn = document.getElementById("scissors");
+scissorsBtn.addEventListener("click", getHumanChoiceScissors );
+scissorsBtn.addEventListener("click", playGame);
+
